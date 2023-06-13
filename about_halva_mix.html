@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/local/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/local/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/local/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" crossorigin="use-credentials" href="/manifest.json">
+    <link rel="mask-icon" href="/local/assets/favicons/safari-pinned-tab.svg" color="#0066ee">
+    <link rel="shortcut icon" href="/local/assets/favicons/favicon.ico">
+
+
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="theme-color" content="#0066ee">
+<meta name="robots" content="noindex">
+
+<script type="text/javascript">var _ba = _ba || []; _ba.push(["aid", "a6fe3c358d90f38ba477e7e9733aef59"]); _ba.push(["host", "demo.halva.by"]); (function() {var ba = document.createElement("script"); ba.type = "text/javascript"; ba.async = true;ba.src = (document.location.protocol == "https:" ? "https://" : "http://") + "bitrix.info/ba.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ba, s);})();</script>
+
+
+
+<link href="/bitrix/cache/css/s1/halva/template_c581a5f3778300ef16ff15e60dfaed50/template_c581a5f3778300ef16ff15e60dfaed50_v1.css?1686573107150641" type="text/css"  data-template-style="true" rel="stylesheet" />
+    <script src="/local/assets/dist/scripts/scripts.build.js?1675073974044" defer></script>
+    <title>Карта Халва MIX</title>
+</head>
+
+
+
+<body class="body--mix no-ios">
+    <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <clipPath id="fi_map-pin-a"><path fill="currentColor" transform="translate(.5 .86)" d="M0 0h20.002v20.002H0z"/></clipPath>
+            <clipPath id="search-location-a"><path fill="currentColor" transform="translate(.5 .861)" d="M0 0h16v16H0z"/></clipPath>
+            <clipPath id="view-map-a"><path fill="currentColor" transform="translate(.832 .194)" d="M0 0h13.335v13.335H0z"/></clipPath>
+        </defs>
+        <symbol id="svg-icon-arrow-breadcrumbs" viewBox="0 0 4 8"><path d="m.5 1 3 3-3 3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="svg-icon-arrow-down" viewBox="0 0 14 15"><path d="M7 .945V13.78m0 0-5.5-5.5m5.5 5.5 5.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="svg-icon-arrow-left" viewBox="0 0 17 17"><path d="M14.68 8.467H1.847m0 0 5.5 5.5m-5.5-5.5 5.5-5.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="svg-icon-arrow-right" viewBox="0 0 17 16"><path d="M3.512 8h8.992m0 0-4.375 4m4.375-4L8.129 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="svg-icon-arrow-top" viewBox="0 0 24 25"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 21.58a.75.75 0 0 0 .75-.75V6.64l4.72 4.72a.75.75 0 1 0 1.06-1.06l-6-6a.75.75 0 0 0-1.06 0l-6 6a.75.75 0 0 0 1.06 1.06l4.72-4.72v14.19c0 .414.336.75.75.75Z" fill="currentColor"/></symbol>
+        <symbol id="svg-icon-burger" viewBox="0 0 24 18"><path d="M1.958 1.468h20.081m-20.081 7.5h20.081m-20.081 7.5h12.358" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+        <symbol id="svg-icon-chat-fill" viewBox="0 0 50 50">
+            <rect width="50" height="50" rx="25" fill="currentColor"/>
+            <path d="M12.1172 39.1663V18.1663C12.1172 17.5247 12.3687 16.9752 12.8718 16.5178C13.374 16.0613 13.978 15.833 14.6839 15.833H35.2175C35.9233 15.833 36.5278 16.0613 37.0309 16.5178C37.5331 16.9752 37.7842 17.5247 37.7842 18.1663V32.1663C37.7842 32.808 37.5331 33.3575 37.0309 33.8148C36.5278 34.2714 35.9233 34.4997 35.2175 34.4997H17.2506L12.1172 39.1663Z" fill="white"/>
+            <circle cx="19.7559" cy="25" r="1.50586" fill="currentColor"/>
+            <circle cx="24.7715" cy="25" r="1.50586" fill="currentColor"/>
+            <circle cx="29.7793" cy="25" r="1.50586" fill="currentColor"/>
+        </symbol>
+        <symbol id="svg-icon-chat" viewBox="0 0 27 25"><path d="M22.838 1.758a1.625 1.625 0 0 1 1.625 1.625v13a1.625 1.625 0 0 1-1.625 1.625H7.26a3.25 3.25 0 0 0-2.297.952l-3.25 3.25V3.383a1.625 1.625 0 0 1 1.625-1.625h19.5ZM3.338.133a3.25 3.25 0 0 0-3.25 3.25V24.17a.812.812 0 0 0 1.387.574l4.637-4.636a1.625 1.625 0 0 1 1.148-.476h15.578a3.25 3.25 0 0 0 3.25-3.25v-13a3.25 3.25 0 0 0-3.25-3.25h-19.5Z" fill="currentColor"/><path d="M17.963 9.883a1.625 1.625 0 1 0 3.25 0 1.625 1.625 0 0 0-3.25 0Zm-6.5 0a1.625 1.625 0 1 0 3.25 0 1.625 1.625 0 0 0-3.25 0Zm-6.5 0a1.625 1.625 0 1 0 3.25 0 1.625 1.625 0 0 0-3.25 0Z" fill="currentColor"/></symbol>
+        <symbol id="svg-icon-checkbox-checked" viewBox="0 0 25 25">
+            <path d="M2.40625 12.5C2.40625 7.78595 2.40625 5.42893 3.87072 3.96447C5.33518 2.5 7.6922 2.5 12.4062 2.5C17.1203 2.5 19.4773 2.5 20.9418 3.96447C22.4062 5.42893 22.4062 7.78595 22.4062 12.5C22.4062 17.214 22.4062 19.5711 20.9418 21.0355C19.4773 22.5 17.1203 22.5 12.4062 22.5C7.6922 22.5 5.33518 22.5 3.87072 21.0355C2.40625 19.5711 2.40625 17.214 2.40625 12.5Z" fill="currentColor"/>
+            <path d="M8.90625 13L10.9062 15L15.9062 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>
+        <symbol id="svg-icon-checkbox" viewBox="0 0 25 25"><path d="M2.088 12.341c0-4.714 0-7.07 1.464-8.535C5.017 2.34 7.374 2.34 12.088 2.34c4.714 0 7.07 0 8.535 1.465 1.465 1.464 1.465 3.821 1.465 8.535s0 7.071-1.465 8.536c-1.464 1.464-3.821 1.464-8.535 1.464s-7.071 0-8.536-1.464c-1.464-1.465-1.464-3.822-1.464-8.536Z" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+        <symbol id="svg-icon-chevron-down-sm" viewBox="0 0 16 16"><path d="m4 6.006 4 3.988 4-3.988" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="svg-icon-chevron-right" viewBox="0 0 5 8"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.082.69a.5.5 0 0 0 0 .707l2.646 2.646L1.082 6.69a.5.5 0 0 0 .707.707l3-3a.5.5 0 0 0 0-.707l-3-3a.5.5 0 0 0-.707 0Z" fill="currentColor"/></symbol>
+        <symbol id="svg-icon-close-modal" viewBox="0 0 11 12"><path d="m.576.938 9.846 9.847m0-9.847L.576 10.785" stroke="currentColor" stroke-width="1.108" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="svg-icon-close-sm" viewBox="0 0 17 16"><path d="m3.577 3.077 9.846 9.846m0-9.846-9.846 9.846" stroke="currentColor" stroke-width="1.108" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="svg-icon-cross" viewBox="0 0 15 14"><path d="M1.842 1.231 13.38 12.768m-11.538.001L13.38 1.23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+        <symbol id="svg-icon-date" viewBox="0 0 19 20"><path d="M8.526 12v-2h2v2h-2Zm-4 0v-2h2v2h-2Zm8 0v-2h2v2h-2Zm-4 4v-2h2v2h-2Zm-4 0v-2h2v2h-2Zm8 0v-2h2v2h-2Zm-12 4V2h3V0h2v2h8V0h2v2h3v18h-18Zm2-2h14V8h-14v10Z" fill="currentColor"/></symbol>
+        <symbol id="svg-icon-download" viewBox="0 0 15 14"><path d="M7.582 1.03v9m0 0L3.58 5.65m4.003 4.379 4.004-4.379" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.063 11.804h9.044" fill="none" stroke="currentColor" stroke-linecap="round"/></symbol>
+        <symbol id="svg-icon-favorite-btn-fill" viewBox="0 0 23 22">
+            <path d="M11.7281 1.33982L14.1876 6.81988C14.4421 7.38686 14.9782 7.77635 15.5961 7.84316L21.5679 8.48891C21.7825 8.5121 21.8688 8.77789 21.7089 8.92274L17.2571 12.9553C16.7965 13.3726 16.5917 14.0028 16.7191 14.6111L17.9504 20.4902C17.9946 20.7014 17.7686 20.8656 17.5814 20.7583L12.3705 17.7706C11.8313 17.4614 11.1687 17.4614 10.6295 17.7706L5.41863 20.7583C5.23145 20.8656 5.00536 20.7014 5.04958 20.4902L6.28086 14.6111C6.40825 14.0028 6.20348 13.3726 5.74289 12.9553L1.29109 8.92274C1.13118 8.77789 1.21754 8.5121 1.43205 8.48891L7.40393 7.84316C8.0218 7.77635 8.55789 7.38686 8.81237 6.81988L11.2719 1.33982C11.3603 1.14298 11.6397 1.14298 11.7281 1.33982Z" fill="currentColor" stroke="currentColor" stroke-width="1.5"/>
+        </symbol>
+        <symbol id="svg-icon-favorite-btn" viewBox="0 0 23 22"><path d="m11.728 1.34 2.46 5.48c.254.567.79.956 1.408 1.023l5.972.646a.25.25 0 0 1 .14.434l-4.45 4.032a1.75 1.75 0 0 0-.539 1.656l1.231 5.88a.25.25 0 0 1-.369.267l-5.21-2.987a1.75 1.75 0 0 0-1.742 0l-5.21 2.987a.25.25 0 0 1-.37-.268l1.232-5.879a1.75 1.75 0 0 0-.538-1.656L1.29 8.923a.25.25 0 0 1 .141-.434l5.972-.646A1.75 1.75 0 0 0 8.812 6.82l2.46-5.48a.25.25 0 0 1 .456 0Z" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+        <symbol id="svg-icon-fi_map-pin" viewBox="0 0 21 21"><g clip-path="url(#fi_map-pin-a)" fill="currentColor"><path d="M18.001 9.194c0 5.834-7.5 10.834-7.5 10.834S3 15.028 3 9.194a7.5 7.5 0 1 1 15.001 0Z"/><path d="M10.5 11.694a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/></g></symbol>
+        <symbol id="svg-icon-filter" viewBox="0 0 32 32"><rect x="4.898" y="6.346" width="22.459" height="2" rx="1" fill="currentColor"/><rect x="4.898" y="15.013" width="22.459" height="2" rx="1" fill="currentColor"/><rect x="4.898" y="23.68" width="22.459" height="2" rx="1" fill="currentColor"/><rect x="13.49" y="13.375" width="5.275" height="5.275" rx="2.638" fill="currentColor"/><rect x="7.197" y="4.708" width="5.275" height="5.275" rx="2.638" fill="currentColor"/><rect x="8.531" y="22.041" width="5.275" height="5.275" rx="2.638" fill="currentColor"/></symbol>
+        <symbol id="svg-icon-lens" viewBox="0 0 17 16"><circle cx="8.167" cy="7.667" r="6.333" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m12.833 12.334 2.334 2.333" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+        <symbol id="svg-icon-next" viewBox="0 0 8 6"><path d="M.627 1.45 3.8 4.55l3.174-3.1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="svg-icon-phone" viewBox="0 0 18 19"><path d="M16.317 12.226a9.897 9.897 0 0 1-3.108-.495c-.487-.166-1.085-.014-1.382.291l-1.96 1.48c-2.273-1.214-3.674-2.614-4.87-4.87l1.436-1.909a1.41 1.41 0 0 0 .346-1.427 9.913 9.913 0 0 1-.497-3.114A1.4 1.4 0 0 0 4.883.783H1.682A1.4 1.4 0 0 0 .283 2.182c0 8.841 7.193 16.034 16.034 16.034a1.4 1.4 0 0 0 1.399-1.399v-3.192a1.4 1.4 0 0 0-1.399-1.4Z" fill="currentColor"/></symbol>
+        <symbol id="svg-icon-plus" viewBox="0 0 25 24"><path d="M17.086 12h-5m0 0h-5m5 0V7m0 5v5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+        <symbol id="svg-icon-rating-star" viewBox="0 0 14 14"><path d="M6.61.968a.5.5 0 0 1 .951 0l1.209 3.72a.5.5 0 0 0 .475.345h3.91a.5.5 0 0 1 .294.904l-3.163 2.299a.5.5 0 0 0-.182.559l1.209 3.719a.5.5 0 0 1-.77.559L7.38 10.774a.5.5 0 0 0-.588 0l-3.163 2.299a.5.5 0 0 1-.77-.56l1.209-3.718a.5.5 0 0 0-.182-.56L.722 5.938a.5.5 0 0 1 .294-.904h3.91a.5.5 0 0 0 .476-.346L6.61.968Z" fill="currentColor"/></symbol>
+        <symbol id="svg-icon-search-location" viewBox="0 0 17 17"><g clip-path="url(#search-location-a)" stroke="currentColor" stroke-width="1.5"><circle cx="8.167" cy="8.528" r="6.333"/><path d="m12.834 13.195 2.333 2.333" stroke-linecap="round"/></g></symbol>
+        <symbol id="svg-icon-slide-left" viewBox="0 0 11 18"><path d="M9.23 16.486 1.603 8.838 9.23 1.19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="svg-icon-slide-right" viewBox="0 0 11 18"><path d="M1.747 16.648 9.373 9 1.747 1.352" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="svg-icon-slider-arrow-right" viewBox="0 0 16 12"><path d="M14.977 6h-14m14 0-5.445 5.444M14.977 6 9.532.555" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="svg-icon-success" viewBox="0 0 27 27"><path d="m10.174 13.894 2.089 2.008 4.66-4.74" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="svg-icon-tick" viewBox="0 0 12 8"><path d="M1.637 2.954 5.182 6.5 10.91.772" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="svg-icon-tiles" viewBox="0 0 14 14"><rect x=".788" y=".793" width="5.734" height="5.734" rx="1.657" fill="currentColor"/><rect x=".788" y="7.473" width="5.734" height="5.734" rx="1.657" fill="currentColor"/><rect x="7.431" y=".793" width="5.734" height="5.734" rx="1.657" fill="currentColor"/><rect x="7.431" y="7.473" width="5.734" height="5.734" rx="2.867" fill="currentColor"/></symbol>
+        <symbol id="svg-icon-tooltip" viewBox="0 0 2 11"><circle cx="1" cy="1.443" r=".75" fill="currentColor"/><rect x=".25" y="3.494" width="1.5" height="6.88" rx=".75" fill="currentColor"/></symbol>
+        <symbol id="svg-icon-view-grid" viewBox="0 0 13 12"><rect x=".885" y=".229" width="5.203" height="5.203" rx="1.503" fill="currentColor"/><rect x=".885" y="6.29" width="5.203" height="5.203" rx="1.503" fill="currentColor"/><rect x="6.912" y=".229" width="5.203" height="5.203" rx="1.503" fill="currentColor"/><rect x="6.912" y="6.29" width="5.203" height="5.203" rx="1.507" fill="currentColor"/></symbol>
+        <symbol id="svg-icon-view-list" viewBox="0 0 13 12"><rect x=".885" y=".229" width="9.989" height="5.203" rx="1.503" fill="currentColor"/><rect x=".885" y="6.29" width="11.23" height="5.203" rx="1.503" fill="currentColor"/><rect x="6.912" y=".229" width="5.203" height="5.203" rx="1.503" fill="currentColor"/><rect x="6.912" y="6.29" width="5.203" height="5.203" rx="1.507" fill="currentColor"/></symbol>
+        <symbol id="svg-icon-view-map" viewBox="0 0 15 14"><g clip-path="url(#view-map-a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 12.973s5-3.334 5-7.223a5 5 0 0 0-10 0c0 3.89 5 7.223 5 7.223ZM9.166 5.75a1.667 1.667 0 1 1-3.334 0 1.667 1.667 0 0 1 3.334 0Z" fill="currentColor"/></g></symbol>
+        <symbol id="svg-icon-warn" viewBox="0 0 25 24"><path d="M2.086 12c0-4.714 0-7.071 1.464-8.536C5.015 2 7.372 2 12.086 2c4.714 0 7.071 0 8.536 1.464C22.085 4.93 22.085 7.286 22.085 12c0 4.714 0 7.071-1.464 8.535C19.157 22 16.8 22 12.086 22s-7.071 0-8.536-1.465C2.086 19.072 2.086 16.714 2.086 12Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12.086 7v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12.086" cy="16" r="1" fill="currentColor"/></symbol>
+    </svg>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QCH5FD"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <v-scope>
+        <v-model-source slot="source" :data-source="{&quot;type&quot;:&quot;favorite&quot;,&quot;remote&quot;:&quot;\/about_halva_mix\/&quot;,&quot;link&quot;:&quot;\/favorites\/&quot;,&quot;items&quot;:{&quot;category&quot;:[{&quot;id&quot;:&quot;36&quot;,&quot;type&quot;:&quot;category&quot;,&quot;title&quot;:&quot;\u0421\u0442\u0440\u043e\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u0438 \u0440\u0435\u043c\u043e\u043d\u0442&quot;,&quot;count&quot;:1621,&quot;subtitle&quot;:&quot;1621 \u043f\u0430\u0440\u0442\u043d\u0435\u0440\u043e\u0432&quot;,&quot;img&quot;:{&quot;src&quot;:&quot;\/upload\/resize_cache\/iblock\/1ed\/2jzsede82h2sfs16k2zoepnjrqmqdcix\/257_100_1\/Frame-6589-_1_.png&quot;,&quot;alt&quot;:&quot;\u0421\u0442\u0440\u043e\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u0438 \u0440\u0435\u043c\u043e\u043d\u0442&quot;},&quot;link&quot;:{&quot;href&quot;:&quot;\/partners\/stroitelnye-materialy\/&quot;}}],&quot;partner&quot;:[]},&quot;bxajaxid&quot;:&quot;de3659f028eff703d8f52ac418e750ae&quot;}" bxajaxid="de3659f028eff703d8f52ac418e750ae"></v-model-source>
+    </v-scope>
+    <div class="overlay js-overlay"></div>
+    
+    
+    <v-scope>
+        <v-cookies slot="source" :data-source="{&quot;type&quot;:&quot;cookies&quot;,&quot;items&quot;:{&quot;text&quot;:&quot;&lt;p&gt;\u0417\u0410\u041e \u00ab\u041c\u0422\u0411\u0430\u043d\u043a\u00bb \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0435\u0442 \u043d\u0430 \u0441\u0430\u0439\u0442\u0435 \u0444\u0430\u0439\u043b\u044b cookie \u0434\u043b\u044f \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u0438 \u0441\u0435\u0440\u0432\u0438\u0441\u043e\u0432 \u0438 \u0443\u0434\u043e\u0431\u0441\u0442\u0432\u0430 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435\u0439. &lt;a href=\&quot;\/private_policy\/\&quot; target=\&quot;_blank\&quot;&gt;\u0423\u0437\u043d\u0430\u0439\u0442\u0435 \u0431\u043e\u043b\u044c\u0448\u0435&lt;\/a&gt; \u043e \u0442\u043e\u043c, \u043a\u0430\u043a \u043c\u044b \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0435\u043c cookie \u0438 \u043a\u0430\u043a \u0432\u044b \u043c\u043e\u0436\u0435\u0442\u0435 \u0438\u0437\u043c\u0435\u043d\u0438\u0442\u044c \u0441\u0432\u043e\u0438 \u043d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438&lt;\/p&gt;&quot;,&quot;actions&quot;:{&quot;accept&quot;:&quot;\u041f\u0440\u0438\u043d\u044f\u0442\u044c&quot;,&quot;reject&quot;:&quot;\u041e\u0442\u043a\u043b\u043e\u043d\u0438\u0442\u044c&quot;}}}" bxajaxid="6856484473b89c6ecf9026f9669a2712"></v-cookies>
+    </v-scope>
+    
+    
+    
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__mob-menu">
+                    <v-scope>
+        <v-mob-menu slot="source" :data-source="{&quot;search&quot;:{&quot;remote&quot;:&quot;\/about_halva_mix\/&quot;,&quot;remoteShowMore&quot;:&quot;\/about_halva_mix\/&quot;,&quot;ajaxMode&quot;:&quot;true&quot;,&quot;actionType&quot;:&quot;title&quot;,&quot;field&quot;:{&quot;type&quot;:&quot;search-full&quot;,&quot;link&quot;:&quot;\/search\/?query=&quot;,&quot;id&quot;:&quot;query&quot;,&quot;name&quot;:&quot;query&quot;,&quot;result&quot;:&quot;\u041d\u0430\u0439\u0434\u0435\u043d\u043e  \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u043e\u0432 &quot;,&quot;groupId&quot;:&quot;1&quot;,&quot;width&quot;:&quot;100%&quot;,&quot;placeholder&quot;:&quot;\u041f\u043e\u0438\u0441\u043a&quot;,&quot;value&quot;:&quot;&quot;},&quot;items&quot;:[]},&quot;nav&quot;:[{&quot;text&quot;:&quot;\u041e \u0445\u0430\u043b\u0432\u0435 MIX&quot;,&quot;link&quot;:&quot;\/about_halva_mix\/&quot;},{&quot;text&quot;:&quot;\u041e \u0445\u0430\u043b\u0432\u0435 MAX&quot;,&quot;link&quot;:&quot;\/about_halva_max\/&quot;},{&quot;text&quot;:&quot;\u041c\u0430\u0433\u0430\u0437\u0438\u043d\u044b-\u043f\u0430\u0440\u0442\u043d\u0435\u0440\u044b&quot;,&quot;link&quot;:&quot;\/partners\/&quot;},{&quot;text&quot;:&quot;\u041d\u043e\u0432\u043e\u0441\u0442\u0438 \u0438 \u0410\u043a\u0446\u0438\u0438&quot;,&quot;link&quot;:&quot;\/news_and_actions\/&quot;},{&quot;text&quot;:&quot;\u0418\u0437\u0431\u0440\u0430\u043d\u043d\u043e\u0435&quot;,&quot;link&quot;:&quot;\/favorites\/&quot;,&quot;favorite&quot;:true}],&quot;buttons&quot;:{&quot;close&quot;:{&quot;text&quot;:&quot;\u0417\u0430\u043a\u0440\u044b\u0442\u044c&quot;},&quot;search&quot;:{&quot;text&quot;:&quot;\u041d\u0430\u0439\u0442\u0438&quot;},&quot;searchClose&quot;:{&quot;text&quot;:&quot;\u041d\u0430\u0437\u0430\u0434&quot;}}}" bxajaxid="3595b8683ca28b056c826baf631d29d6"></v-mob-menu>
+    </v-scope>
+    
+    
+                </div>
+                            <a class="header__logo" href="/">
+                                <img class="header__logo-img" src="/local/assets/images/logo.svg" alt="logo">
+                              </a>
+                            <div class="header__nav nav">
+    
+                        
+        <nav class="nav__links">
+    
+                                    <a class="nav__link nav__link--mix active" href="/about_halva_mix/">О Халве MIX<img class="nav__link-icon" src="/local/assets/images/card-small-mix.png" alt="О Халве MIX"></a>
+            
+                                    <a class="nav__link nav__link--max" href="/about_halva_max/">О Халве MAX<img class="nav__link-icon" src="/local/assets/images/card-small-max.png" alt="О Халве MAX"></a>
+            
+                                    <a class="nav__link " href="/partners/">Магазины-партнеры</a>
+            
+                                    <a class="nav__link " href="/news_and_actions/">Новости и Акции</a>
+            
+            
+        </nav>
+    
+    
+                </div>
+                
+    <v-scope>
+        <v-search-small class="header__search" slot="source" :data-source="{&quot;remote&quot;:&quot;\/about_halva_mix\/&quot;,&quot;query&quot;:&quot;&quot;,&quot;field&quot;:{&quot;type&quot;:&quot;text&quot;,&quot;label&quot;:null,&quot;inputmode&quot;:&quot;search&quot;,&quot;placeholder&quot;:&quot;\u041d\u0430\u0439\u0442\u0438 \u043c\u0430\u0433\u0430\u0437\u0438\u043d&quot;},&quot;items&quot;:[],&quot;action&quot;:{&quot;text&quot;:&quot;\u0412\u0441\u0435 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u044b&quot;,&quot;link&quot;:&quot;\/search\/?query=&quot;}}"
+                        bxajaxid="cfeb3bb76f74a0466a2c7029de21c0ce"></v-search-small>
+    </v-scope>
+                <v-scope>
+                    <v-favorite-small class="header__favorite" data-source="/local/assets/dist/fixtures/favorite-small.json"></v-favorite-small>
+                </v-scope>
+                <div class="header__order-btn">
+                                    <button  class="outline-btn js-scroll-to-form" type="button" data-field="{&quot;id&quot;: &quot;type&quot;, &quot;value&quot;: &quot;2&quot;}"><span class="outline-btn__shadow"></span><span class="outline-btn__inner">Заказать карту</span></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    
+    <main class="page-main">
+    
+    
+    <main class="page-main">
+    
+    <section class="section--gray section--product-banner">
+    
+        <div class="main-slider js-main-slider" >
+        <div class="container">
+            <div class="main-slider__area">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+    
+        
+            <div class="main-slider__slide swiper-slide">
+                <div class="main-slider__slide-content">
+                    <div class="main-slider__slide-title">Оптимальные преимущества  <span>карты Халва MIX</span></div>
+                    <div class="main-slider__slide-text">для решения ежедневных задач</div>
+    
+                    <div class="main-slider__slide-actions">
+                                            <a class="main-slider__slide-action btn btn--blue js-scroll-to-form" href="#1">Заказать карту</a>
+                                                                                            </div>
+                </div>
+                <div class="main-slider__slide-banner">
+                    <img class="main-slider__slide-banner-img" src="/upload/iblock/a72/94j85ln5xs7tdnfs8cc80fyo982uis5r.png" srcset="/upload/iblock/a72/94j85ln5xs7tdnfs8cc80fyo982uis5r.png 1023w, /upload/iblock/a72/94j85ln5xs7tdnfs8cc80fyo982uis5r.png" fetchpriority="high" alt="">
+                </div>
+                <a class="main-slider__cover-link"  href="">Оптимальные преимущества </a>
+            </div>
+    
+                        </div>
+                </div>
+                <button class="swiper-arrow swiper-arrow--prev swiper-button-prev" type="button" aria-label="prev">
+                    <svg class="swiper-arrow__icon">
+                        <use href="#svg-icon-slide-left"></use>
+                    </svg>
+                </button>
+                <button class="swiper-arrow swiper-arrow--next swiper-button-next" type="button" aria-label="next">
+                    <svg class="swiper-arrow__icon">
+                        <use href="#svg-icon-slide-right"></use>
+                    </svg>
+                </button>
+                <div class="main-slider__pagination swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+    
+    </section>
+    
+    
+    
+    
+        <section class="section">
+            <div class="container container--md">
+                <h2 class="section__title">Преимущества Халвы MIX</h2>
+                <div class="banners-grid banners-grid--brick">
+                    <div class="banners-grid__items">
+    
+                 
+    
+                        <div class="banners-grid__item" style="background: linear-gradient(265.2deg, rgba(224, 104, 31, 0.2) 20.41%, rgba(0, 156, 166, 0.08) 40.98%, rgba(255, 255, 255, 0) 65.02%), #F9F6F6;">
+                            <img class="banners-grid__item-banner" src="/upload/iblock/79c/ytz3pdyjreagycbzsieqgqv0sdsl87ix.png" srcset="/upload/iblock/79c/ytz3pdyjreagycbzsieqgqv0sdsl87ix.png" alt="До 12 месяцев на все в магазинах-партнерах" title="До 12 месяцев на все в магазинах-партнерах" loading="lazy">
+                            <div class="banners-grid__item-title">До 12 месяцев на все в магазинах-партнерах</div>
+                            <div class="banners-grid__item-text">воплощайте мечты с минимальной нагрузкой на свой бюджет</div>
+                        </div>
+    
+                 
+    
+                        <div class="banners-grid__item" style="background: linear-gradient(265.2deg, rgba(224, 104, 31, 0.2) 20.41%, rgba(0, 156, 166, 0.08) 40.98%, rgba(255, 255, 255, 0) 65.02%), linear-gradient(0deg, #F0F2FB, #F0F2FB), #F9F6F6;">
+                            <img class="banners-grid__item-banner" src="/upload/iblock/dc2/b0pb9kgyzh4gx9yut3t1sova8zd3zp0t.png" srcset="/upload/iblock/dc2/b0pb9kgyzh4gx9yut3t1sova8zd3zp0t.png" alt="До 25 000 руб. на ваши покупки" title="До 25 000 руб. на ваши покупки" loading="lazy">
+                            <div class="banners-grid__item-title">До 25 000 руб. на ваши покупки</div>
+                            <div class="banners-grid__item-text">больше возможностей для покупок за счет увеличенного лимита</div>
+                        </div>
+    
+                 
+    
+                        <div class="banners-grid__item" style="background: linear-gradient(281.85deg, rgba(0, 156, 166, 0.19) 7.2%, rgba(0, 156, 166, 0) 60.34%), #F0F2FB">
+                            <img class="banners-grid__item-banner" src="/upload/iblock/435/3wogmncvky0seeps1meyl8l746iowfrb.png" srcset="/upload/iblock/435/3wogmncvky0seeps1meyl8l746iowfrb.png" alt="35 000+ магазинов-партнеров" title="35 000+ магазинов-партнеров" loading="lazy">
+                            <div class="banners-grid__item-title">35 000+ магазинов-партнеров</div>
+                            <div class="banners-grid__item-text">покупайте без первого взноса и переплат в крупнейшей сети партнеров</div>
+                        </div>
+    
+                 
+    
+                        <div class="banners-grid__item" style="background: linear-gradient(282.36deg, rgba(252, 76, 2, 0.25) -9.44%, rgba(252, 76, 2, 0) 56.49%), #F9F4F3;">
+                            <img class="banners-grid__item-banner" src="/upload/iblock/d5d/t2r2zlodj4yruu3w7l0htzve9vtnk17r.png" srcset="/upload/iblock/d5d/t2r2zlodj4yruu3w7l0htzve9vtnk17r.png" alt="1 месяц на оплату коммунальных услуг в ЕРИП" title="1 месяц на оплату коммунальных услуг в ЕРИП" loading="lazy">
+                            <div class="banners-grid__item-title">1 месяц на оплату коммунальных услуг в ЕРИП</div>
+                            <div class="banners-grid__item-text">за счет лимита овердрафта на mybank.by</div>
+                        </div>
+    
+                 
+    
+                        <div class="banners-grid__item" style="background: linear-gradient(281.85deg, rgba(0, 156, 166, 0.19) 7.2%, rgba(0, 156, 166, 0) 60.34%), #F0F2FB;">
+                            <img class="banners-grid__item-banner" src="/upload/iblock/a23/i4kzoyvtnqrtzfof9fsmpk0xkjczipfy.png" srcset="/upload/iblock/a23/i4kzoyvtnqrtzfof9fsmpk0xkjczipfy.png" alt="Погашение задолженности          до 25-ого числа" title="Погашение задолженности          до 25-ого числа" loading="lazy">
+                            <div class="banners-grid__item-title">Погашение задолженности          до 25-ого числа</div>
+                            <div class="banners-grid__item-text">внести деньги на карту необходимо с 6-го по 25-е число месяца, следующего за отчетным</div>
+                        </div>
+    
+                                 </div>
+                </div>
+                <div class="section__actions"><a class="section__action btn btn--blue js-scroll-to-tab" data-section-id="2" href="#">Тарифы и условия</a>
+    <a class="section__action btn btn--transparent" href="/about_halva_max/">Сравнить с Халвой MAX </a>            </div>
+            </div>
+        </section>
+    
+    
+    
+    
+    <section class="section section--gray">
+        <div class="container container--md">
+            <div class="tabs js-tabs" id="tabs__controls">
+                <div class="tabs__controls">
+    
+                     
+                    <div class="tabs__control active js-tabs-control" data-section-id="1">Как работает Халва MIX</div>
+    
+                    
+                    <div class="tabs__control  js-tabs-control" data-section-id="2">Тарифы и условия</div>
+    
+                    
+                    <div class="tabs__control  js-tabs-control" data-section-id="3">Рассчитать платеж</div>
+    
+                                </div>
+                <div class="tabs__sections">
+    
+                                    <div class="tabs__section active js-tabs-section" data-section-id="1">
+                        <div class="section__title">Как работает Халва MIX</div>
+                                            <div class="section__subtitle">С Халвой покупайте все, что нужно сейчас, а платите потом!</div>
+                        
+                        
+                        <div class="base-slider js-base-slider">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+    
+                                      
+                                          <div class="swiper-slide">
+    
+                                              <div class="num-card">
+    
+                                                  <div class="num-card__number">1</div>
+                                                  <div class="num-card__title">Выберите нужный магазин среди наших партнеров</div>
+                                                  <div class="num-card__text">В нашей партнерской сети более 35 000 магазинов</div>
+    
+                                              </div>
+    
+                                          </div>
+                                      
+                                          <div class="swiper-slide">
+    
+                                              <div class="num-card">
+    
+                                                  <div class="num-card__number">2</div>
+                                                  <div class="num-card__title">Оплатите покупку картой Халва MIX</div>
+                                                  <div class="num-card__text">Просто рассчитайтесь Халвой на кассе или online</div>
+    
+                                              </div>
+    
+                                          </div>
+                                      
+                                          <div class="swiper-slide">
+    
+                                              <div class="num-card">
+    
+                                                  <div class="num-card__number">3</div>
+                                                  <div class="num-card__title">Вносите платеж 1 раз в месяц до 25-го числа</div>
+                                                  <div class="num-card__text">Суммы трат по всем покупкам делятся на равные части и объединяются в разовый ежемесячный платеж </div>
+    
+                                              </div>
+    
+                                          </div>
+                                      
+                                          <div class="swiper-slide">
+    
+                                              <div class="num-card">
+    
+                                                  <div class="num-card__number">4</div>
+                                                  <div class="num-card__title">Выбирайте рекомендованный или минимальный платеж</div>
+                                                  <div class="num-card__text">Можно растянуть платеж на 12 месяцев на условиях овердрафта или выбрать стандартный срок партнера.</div>
+    
+                                              </div>
+    
+                                          </div>
+                                                                  </div>
+                            </div>
+                            <button class="swiper-arrow swiper-arrow--prev swiper-button-prev" type="button" aria-label="prev">
+                                <svg class="swiper-arrow__icon">
+                                    <use href="#svg-icon-slide-left"></use>
+                                </svg>
+                            </button>
+                            <button class="swiper-arrow swiper-arrow--next swiper-button-next" type="button" aria-label="next">
+                                <svg class="swiper-arrow__icon">
+                                    <use href="#svg-icon-slide-right"></use>
+                                </svg>
+                            </button>
+                            <div class="swiper-scrollbar"></div>
+                        </div>
+    
+                                                    </div>
+                                    <div class="tabs__section  js-tabs-section" data-section-id="2">
+                        <div class="section__title">Тарифы и условия</div>
+                        
+                                                <div class="info-table">
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Тип карты</div>
+                                        <div class="info-table__cell">Mastercard World</div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Срок действия карты</div>
+                                        <div class="info-table__cell">5 лет</div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Минимальная сумма лимита овердрафта</div>
+                                        <div class="info-table__cell">300 BYN (100 BYN для пенсионеров*)<br>
+     *Физическое лицо, основным источником дохода которого является&nbsp;пенсия<br></div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Максимальная сумма лимита овердрафта</div>
+                                        <div class="info-table__cell">25000 BYN (1000 BYN для пенсионеров*)<br>
+     *Физическое лицо, основным источником дохода которого является&nbsp;пенсия<br></div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Грейс-период</div>
+                                        <div class="info-table__cell">от 1 месяца и более (в зависимости от организации-партнёра)<br>
+     Предоставляется при совершении Льготных операций за счет лимита овердрафта<br></div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Срок погашения задолженности по каждой операции</div>
+                                        <div class="info-table__cell">12 месяцев*<br>
+     *в случае, если грейс-период, предоставляемый организацией-партнёром, установлен свыше 12 месяцев, то срок погашения задолженности по данной операции устанавливается равным сроку грейс-периода<br></div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Процентная ставка на задолженность по Льготным* операциям в течение грейс-периода</div>
+                                        <div class="info-table__cell">0,000001 % годовых<br>
+     *Льготные операции:<br>
+     - операции оплаты товаров (работ, услуг) с использованием карточки, совершаемые в организациях-партнёрах;<br>
+     - операции переводов посредством онлайн-сервисов Банка для оплаты приобретаемых у физического или юридического лица товаров (работ, услуг) по его предложению, размещенному на информационном ресурсе (интернет-площадке, платформе, приложении) юридического лица, являющегося партнером Банка.<br></div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Процентная ставка на задолженность по Льготным операциям по окончании грейс-периода</div>
+                                        <div class="info-table__cell">15,40% годовых*<br>
+     *размер Процентной ставки зависит от процентной ставки по кредитам овернайт, установленной Национальным банком Республики Беларусь, и определяется как процентная ставка по кредитам овернайт, установленная НБРБ, увеличенная в 1,4 раза<br></div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Дата внесения Минимального или Рекомендованного платежа</div>
+                                        <div class="info-table__cell">с 6-го по 25-е число месяца, следующего за отчетным</div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Повышенная процентная ставка на просроченную задолженность</div>
+                                        <div class="info-table__cell">в размере процентной ставки, установленной на задолженность по окончании грейс-периода, увеличенной в 1,5 раза</div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Плата за сервисное обслуживание основной карты</div>
+                                        <div class="info-table__cell">9,90 BYN за каждый год</div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Плата за сервисное обслуживание дополнительной карты</div>
+                                        <div class="info-table__cell">9,90 BYN за каждый год (предусмотрено до 2-х дополнительных карт)</div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Процентная ставка на остаток денежных средств по счету</div>
+                                        <div class="info-table__cell">0,0001% годовых</div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Интернет-банк</div>
+                                        <div class="info-table__cell">входит в состав услуг по Тарифному плану, плата не взимается<br></div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Выписка по карте на e-mail</div>
+                                        <div class="info-table__cell">входит в состав услуг по Тарифному плану, плата не взимается<br></div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Информирование об операциях с использованием карточки</div>
+                                        <div class="info-table__cell">3,5 BYN</div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Досрочное погашение</div>
+                                        <div class="info-table__cell">без штрафных санкций<br></div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">_______________________</div>
+                                        <div class="info-table__cell">_______________________</div>
+                                    </div>
+                                                                <div class="info-table__row">
+                                        <div class="info-table__cell">Карта Рассрочки №1 «Халва MIX»</div>
+                                        <div class="info-table__cell">Информация относится к карте Рассрочки №1 «Халва MIX» и не распространяется на обновленные условия, указанные выше. <br>
+     Ознакомиться с информацией можно <a href="/about_halva_mix/Халва%20MIX_%20карта%20рассрочки%20№1.pdf">здесь</a></div>
+                                    </div>
+                                
+                                                        </div>
+                                            </div>
+                                    <div class="tabs__section  js-tabs-section" data-section-id="3">
+                        <div class="section__title">Рассчитать платеж</div>
+                                            <div class="section__subtitle">Составьте список покупок и узнайте свой ежемесячный платеж</div>
+                        
+                                                <v-scope>
+                                <v-calculator slot="source" :data-source="{&quot;title&quot;:&quot;\u041a\u0430\u043b\u044c\u043a\u0443\u043b\u044f\u0442\u043e\u0440 \u0425\u0430\u043b\u0432\u0430 MIX&quot;,&quot;amount&quot;:{&quot;type&quot;:&quot;range&quot;,&quot;text&quot;:&quot;\u0421\u0442\u043e\u0438\u043c\u043e\u0441\u0442\u044c \u043f\u043e\u043a\u0443\u043f\u043a\u0438&quot;,&quot;currency&quot;:&quot;\u0440\u0443\u0431.&quot;,&quot;value&quot;:1500,&quot;min&quot;:1,&quot;max&quot;:25000},&quot;period&quot;:{&quot;type&quot;:&quot;range&quot;,&quot;text&quot;:&quot;\u0421\u0440\u043e\u043a \u0433\u0440\u0435\u0439\u0441-\u043f\u0435\u0440\u0438\u043e\u0434\u0430&quot;,&quot;currency&quot;:&quot;\u043c\u0435\u0441.&quot;,&quot;value&quot;:1,&quot;min&quot;:1,&quot;max&quot;:12},&quot;schedule&quot;:{&quot;sticker&quot;:&quot;\u0413\u0440\u0430\u0444\u0438\u043a \u043f\u043b\u0430\u0442\u0435\u0436\u0435\u0439&quot;,&quot;text&quot;:&quot;\u043c\u0435\u0441\u044f\u0446&quot;},&quot;sticker&quot;:&quot;\u041f\u043e\u043a\u0443\u043f\u043a\u0430&quot;,&quot;addButton&quot;:{&quot;text&quot;:&quot;\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u043f\u043e\u043a\u0443\u043f\u043a\u0443&quot;},&quot;total&quot;:{&quot;amount&quot;:{&quot;text&quot;:&quot;\u041e\u0431\u0449\u0430\u044f \u0441\u0443\u043c\u043c\u0430&quot;},&quot;period&quot;:{&quot;text&quot;:&quot;\u041e\u0431\u0449\u0438\u0439 \u0441\u0440\u043e\u043a \u0440\u0430\u0441\u0441\u0440\u043e\u0447\u043a\u0438&quot;},&quot;sticker&quot;:{&quot;text&quot;:&quot;\u0418\u0442\u043e\u0433\u043e&quot;}},&quot;payment&quot;:{&quot;text&quot;:&quot;\u0415\u0436\u0435\u043c\u0435\u0441\u044f\u0447\u043d\u044b\u0439 \u043f\u043b\u0430\u0442\u0435\u0436&quot;},&quot;message&quot;:&quot;\u0420\u0430\u0441\u0447\u0435\u0442 \u043d\u043e\u0441\u0438\u0442 \u043e\u0437\u043d\u0430\u043a\u043e\u043c\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0439 \u0445\u0430\u0440\u0430\u043a\u0442\u0435\u0440 \u0438 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0434\u043e\u0433\u043e\u0432\u043e\u0440\u043e\u043c \u043e\u0444\u0435\u0440\u0442\u044b&quot;}"></v-calculator>
+                            </v-scope>
+                                                </div>
+                    
+                </div>
+            </div>
+                    <div class="section__actions">
+                <button class="section__action btn btn--blue js-scroll-to-form" type="button">Заказать карту</button>
+                <a class="section__action btn btn--transparent" href="/about_halva_max/#tabs__controls">Сравнить с Халвой MAX            <svg class="btn__icon">
+                    <use href="#svg-icon-arrow-right"></use>
+                </svg></a>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+        <section class="section section--gray">
+            <div class="container container--md">
+                <h2 class="section__title">Вопрос - ответ</h2>
+                <v-scope>
+                    <v-acc slot="source" :data-source="{&quot;items&quot;:[{&quot;id&quot;:&quot;11197&quot;,&quot;title&quot;:&quot;\u0413\u0434\u0435 \u043c\u043e\u0436\u043d\u043e \u043f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0433\u0440\u0430\u0444\u0438\u043a \u043f\u043b\u0430\u0442\u0435\u0436\u0435\u0439?&quot;,&quot;text&quot;:&quot;&lt;div&gt;\r\n\t \u0413\u0440\u0430\u0444\u0438\u043a \u043c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u044b\u0445 \u043f\u043b\u0430\u0442\u0435\u0436\u0435\u0439 \u043c\u043e\u0436\u043d\u043e \u043f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0432 \u043c\u043e\u0431\u0438\u043b\u044c\u043d\u043e\u043c \u0431\u0430\u043d\u043a\u0435 &lt;a href=\&quot;https:\/\/www.mtbank.by\/services\/mtbank-moby\/\&quot;&gt;Moby&lt;\/a&gt; \u0438 &lt;a href=\&quot;https:\/\/www.mtbank.by\/services\/internet-bank\/\&quot;&gt;\u0418\u043d\u0442\u0435\u0440\u043d\u0435\u0442-\u0431\u0430\u043d\u043a\u0435&lt;\/a&gt;. \u0422\u0430\u043a\u0436\u0435 \u0441\u0443\u043c\u043c\u0443 \u043c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u043e\u0433\u043e (\u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0433\u043e) \u0438 \u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u043e\u0432\u0430\u043d\u043d\u043e\u0433\u043e \u043f\u043b\u0430\u0442\u0435\u0436\u0430 \u043c\u043e\u0436\u043d\u043e \u0443\u0432\u0438\u0434\u0435\u0442\u044c \u0432 \u0421\u041c\u0421 \u0438\u043b\u0438 \u043f\u0440\u0438 \u043f\u043e\u0433\u0430\u0448\u0435\u043d\u0438\u0438 \u0437\u0430\u0434\u043e\u043b\u0436\u0435\u043d\u043d\u043e\u0441\u0442\u0438 \u0447\u0435\u0440\u0435\u0437 \u0415\u0420\u0418\u041f.&lt;br&gt;\r\n\t \u0412\u044b\u043f\u0438\u0441\u043a\u0430 \u0435\u0436\u0435\u043c\u0435\u0441\u044f\u0447\u043d\u043e \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u043a\u043b\u0438\u0435\u043d\u0442\u0443 \u043d\u0430 email \u0432 \u0434\u0430\u0442\u0443 \u0432\u044b\u0441\u0442\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u043f\u043b\u0430\u0442\u0435\u0436\u0430.&lt;br&gt;\r\n&lt;\/div&gt;\r\n &lt;br&gt;&quot;},{&quot;id&quot;:&quot;11212&quot;,&quot;title&quot;:&quot;\u041a\u0430\u043a \u043f\u043e\u0433\u0430\u0441\u0438\u0442\u044c \u043f\u043b\u0430\u0442\u0451\u0436 \u043f\u043e \u043a\u0430\u0440\u0442\u0435?&quot;,&quot;text&quot;:&quot;&lt;p&gt;\r\n\t \u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u043f\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043a\u0430\u0440\u0442\u0443 \u0425\u0430\u043b\u0432\u0430 MAX \u0438\u043b\u0438 \u0425\u0430\u043b\u0432\u0430 MIX, \u0438 \u0434\u0435\u043d\u0435\u0436\u043d\u044b\u0435 \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430 \u0430\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438 \u043d\u0430\u043f\u0440\u0430\u0432\u044f\u0442\u0441\u044f \u043d\u0430 \u043f\u043e\u0433\u0430\u0448\u0435\u043d\u0438\u0435 \u043c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u043f\u043b\u0430\u0442\u0435\u0436\u0430.\r\n&lt;\/p&gt;\r\n&lt;p&gt;\r\n\t \u041f\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043a\u0430\u0440\u0442\u0443 \u0431\u0435\u0437 \u043a\u043e\u043c\u0438\u0441\u0441\u0438\u0439 \u0441\u043e \u0441\u0442\u043e\u0440\u043e\u043d\u044b \u041c\u0422\u0411\u0430\u043d\u043a\u0430 \u043f\u043e \u043d\u043e\u043c\u0435\u0440\u0443 \u043a\u0430\u0440\u0442\u044b, \u0441\u0447\u0435\u0442\u0430 \u0438\u043b\u0438 \u0442\u0435\u043b\u0435\u0444\u043e\u043d\u0430 \u043c\u043e\u0436\u043d\u043e \u0447\u0435\u0440\u0435\u0437:&amp;nbsp;\r\n&lt;\/p&gt;\r\n&lt;p&gt;\r\n&lt;\/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t&lt;p&gt;\r\n\t\t \u041c\u043e\u0431\u0438\u043b\u044c\u043d\u044b\u0439 \u0431\u0430\u043d\u043a Moby\r\n\t&lt;\/p&gt;\r\n &lt;\/li&gt;\r\n\t&lt;li&gt;\r\n\t&lt;p&gt;\r\n\t\t \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442-\u0431\u0430\u043d\u043a mybank.by\r\n\t&lt;\/p&gt;\r\n &lt;\/li&gt;\r\n\t&lt;li&gt;\r\n\t&lt;p&gt;\r\n\t\t \u043e\u043d\u043b\u0430\u0439\u043d-\u043f\u0435\u0440\u0435\u0432\u043e\u0434\u043e\u043c \u0447\u0435\u0440\u0435\u0437 \u0441\u0435\u0440\u0432\u0438\u0441 perevod.mtbank.by \u0441 \u043a\u0430\u0440\u0442\u044b Visa \u0438 MasterCard \u043b\u044e\u0431\u043e\u0433\u043e \u0431\u0435\u043b\u043e\u0440\u0443\u0441\u0441\u043a\u043e\u0433\u043e \u0431\u0430\u043d\u043a\u0430*, \u0430 \u0442\u0430\u043a\u0436\u0435 \u0411\u0415\u041b\u041a\u0410\u0420\u0422 \u2013 \u0434\u043e 10 000 BYN \u0432 \u043c\u0435\u0441\u044f\u0446\r\n\t&lt;\/p&gt;\r\n &lt;\/li&gt;\r\n\t&lt;li&gt;\r\n\t&lt;p&gt;\r\n\t\t \u043d\u0430\u043b\u0438\u0447\u043d\u044b\u043c\u0438 \u0447\u0435\u0440\u0435\u0437 \u043a\u0430\u0441\u0441\u044b \u0438 \u0438\u043d\u0444\u043e\u043a\u0438\u043e\u0441\u043a\u0438 \u041c\u0422\u0411\u0430\u043d\u043a\u0430\r\n\t&lt;\/p&gt;\r\n &lt;\/li&gt;\r\n\t&lt;li&gt;\r\n\t&lt;p&gt;\r\n\t\t \u0432 \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u044f\u0445 \u0420\u0423\u041f \u00ab\u0411\u0435\u043b\u043f\u043e\u0447\u0442\u0430\u00bb\r\n\t&lt;\/p&gt;\r\n &lt;\/li&gt;\r\n\t&lt;li&gt;\r\n\t&lt;p&gt;\r\n\t\t \u0447\u0435\u0440\u0435\u0437 \u0441\u0438\u0441\u0442\u0435\u043c\u0443 \u0415\u0420\u0418\u041f \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442-\u0431\u0430\u043d\u043a\u0438, \u043c\u043e\u0431\u0438\u043b\u044c\u043d\u044b\u0435 \u0431\u0430\u043d\u043a\u0438 \u0438 \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u0430 \u0434\u0440\u0443\u0433\u0438\u0445 \u0431\u0430\u043d\u043a\u043e\u0432\r\n\t&lt;\/p&gt;\r\n &lt;\/li&gt;\r\n\t&lt;li&gt;\r\n\t&lt;p&gt;\r\n\t\t \u043d\u0430\u043b\u0438\u0447\u043d\u044b\u043c\u0438 \u0434\u0435\u043d\u044c\u0433\u0430\u043c\u0438 \u0432 \u0442\u0435\u0440\u043c\u0438\u043d\u0430\u043b\u0430\u0445 Qiwi\r\n\t&lt;\/p&gt;\r\n &lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n&lt;p&gt;\r\n&lt;\/p&gt;\r\n&lt;p&gt;\r\n\t &amp;nbsp;\r\n&lt;\/p&gt;\r\n&lt;p&gt;\r\n &lt;i&gt;&lt;span style=\&quot;color: #a6a6a6;\&quot;&gt;*\u0412 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0438\u0438 \u0441 \u043f\u043e\u043b\u0438\u0442\u0438\u043a\u043e\u0439 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438 \u0431\u0430\u043d\u043a\u043e\u0432 \u043d\u0435\u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0432\u0438\u0434\u044b \u043a\u0430\u0440\u0442 \u043c\u043e\u0433\u0443\u0442 \u0431\u044b\u0442\u044c \u043d\u0435\u0434\u043e\u0441\u0442\u0443\u043f\u043d\u044b \u0434\u043b\u044f \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0439 \u0432 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442\u0435. \u041f\u0440\u0438 \u043d\u0435\u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u0438 \u043e\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0438\u0442\u044c \u043e\u043d\u043b\u0430\u0439\u043d-\u043f\u043e\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0435 \u043f\u0440\u043e\u0441\u0438\u043c \u043e\u0431\u0440\u0430\u0442\u0438\u0442\u044c\u0441\u044f \u0432 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u044e\u0449\u0438\u0439 \u0431\u0430\u043d\u043a&lt;\/span&gt;&lt;\/i&gt;&lt;i&gt;&lt;span style=\&quot;color: #a6a6a6;\&quot;&gt;.&lt;\/span&gt;&lt;\/i&gt;\r\n&lt;\/p&gt;&quot;},{&quot;id&quot;:&quot;11210&quot;,&quot;title&quot;:&quot;\u041a\u0430\u043a\u0430\u044f \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u0431\u0443\u0434\u0435\u0442 \u0432 \u0421\u041c\u0421, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0431\u0430\u043d\u043a \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u044f\u0435\u0442 \u043a\u043b\u0438\u0435\u043d\u0442\u0443?&quot;,&quot;text&quot;:&quot;\u041d\u043e\u043c\u0435\u0440 \u0414\u043e\u0433\u043e\u0432\u043e\u0440\u0430, \u0441\u0443\u043c\u043c\u0430 \u043c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u043f\u043b\u0430\u0442\u0435\u0436\u0430, \u0441\u0443\u043c\u043c\u0430 \u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0443\u0435\u043c\u043e\u0433\u043e \u043f\u043b\u0430\u0442\u0435\u0436\u0430, \u0434\u0430\u0442\u0430, \u0434\u043e \u043a\u043e\u0442\u043e\u0440\u043e\u0439 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0432\u043d\u0435\u0441\u0442\u0438 \u043f\u043b\u0430\u0442\u0435\u0436.&quot;},{&quot;id&quot;:&quot;11253&quot;,&quot;title&quot;:&quot;\u041a\u0430\u043a \u0444\u043e\u0440\u043c\u0438\u0440\u0443\u044e\u0442\u0441\u044f \u0435\u0436\u0435\u043c\u0435\u0441\u044f\u0447\u043d\u044b\u0435 \u043f\u043b\u0430\u0442\u0435\u0436\u0438?&quot;,&quot;text&quot;:&quot;\u0415\u0436\u0435\u043c\u0435\u0441\u044f\u0447\u043d\u044b\u0439 \u043f\u043b\u0430\u0442\u0435\u0436 \u0440\u0430\u0441\u0441\u0447\u0438\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u043a\u0430\u043a \u043c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u044b\u0439 (\u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u044b\u0439) \u043f\u043b\u0430\u0442\u0435\u0436, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0441\u043e\u0441\u0442\u043e\u0438\u0442 \u0438\u0437:&lt;br&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\u0435\u0436\u0435\u043c\u0435\u0441\u044f\u0447\u043d\u043e\u0433\u043e \u043f\u043b\u0430\u0442\u0435\u0436\u0430, \u043f\u043e\u0434\u043b\u0435\u0436\u0430\u0449\u0435\u0433\u043e \u043f\u043e\u0433\u0430\u0448\u0435\u043d\u0438\u044e \u043f\u043e \u043a\u0430\u0436\u0434\u043e\u0439 \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0438. \u0420\u0430\u0437\u043c\u0435\u0440 \u0435\u0436\u0435\u043c\u0435\u0441\u044f\u0447\u043d\u043e\u0433\u043e \u043f\u043b\u0430\u0442\u0435\u0436\u0430 \u043e\u043f\u0440\u0435\u0434\u0435\u043b\u044f\u0435\u0442\u0441\u044f \u043f\u0443\u0442\u0435\u043c \u0434\u0435\u043b\u0435\u043d\u0438\u044f \u0441\u0443\u043c\u043c\u044b \u043e\u0431\u0449\u0435\u0439 \u0441\u0443\u043c\u043c\u044b \u043a\u0430\u0436\u0434\u043e\u0439 \u043f\u043e\u043a\u0443\u043f\u043a\u0438 \u043d\u0430 12 \u043c\u0435\u0441\u044f\u0446\u0435\u0432 \u0434\u043b\u044f \u0425\u0430\u043b\u0432\u044b MIX \u0438 14 \u043c\u0435\u0441\u044f\u0446\u0435\u0432 \u0434\u043b\u044f \u0425\u0430\u043b\u0432\u044b MAX;&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\u043a\u043e\u043c\u0438\u0441\u0441\u0438\u0438 \u0437\u0430 \u0441\u0435\u0440\u0432\u0438\u0441\u043d\u043e\u0435 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u043d\u0438\u0435 (\u043f\u0440\u0438 \u043d\u0430\u043b\u0438\u0447\u0438\u0438) \u0437\u0430 \u043f\u0440\u043e\u0448\u043b\u044b\u0439 \u043c\u0435\u0441\u044f\u0446;&lt;br&gt;\r\n &lt;\/li&gt;\r\n\t&lt;li&gt;\r\n\t\u043e\u043f\u043b\u0430\u0442\u044b \u043d\u0430\u0447\u0438\u0441\u043b\u0435\u043d\u043d\u044b\u0445 \u0438 \u0432\u044b\u0441\u0442\u0430\u0432\u043b\u0435\u043d\u043d\u044b\u0445 \u043a \u043e\u043f\u043b\u0430\u0442\u0435 \u043f\u0440\u043e\u0446\u0435\u043d\u0442\u043e\u0432 (\u043f\u0440\u0438 \u043d\u0430\u043b\u0438\u0447\u0438\u0438) \u0437\u0430 \u043f\u0440\u043e\u0448\u043b\u044b\u0435 \u043f\u0435\u0440\u0438\u043e\u0434\u044b.&lt;\/li&gt;\r\n&lt;\/ul&gt;&quot;},{&quot;id&quot;:&quot;11214&quot;,&quot;title&quot;:&quot;\u0413\u0434\u0435 \u044f \u043c\u043e\u0433\u0443 \u043e\u0437\u043d\u0430\u043a\u043e\u043c\u0438\u0442\u044c\u0441\u044f \u0441\u043e \u0441\u043f\u0438\u0441\u043a\u043e\u043c \u043f\u0430\u0440\u0442\u043d\u0435\u0440\u043e\u0432?&quot;,&quot;text&quot;:&quot;\u0421\u043e \u0441\u043f\u0438\u0441\u043a\u043e\u043c \u043f\u0430\u0440\u0442\u043d\u0435\u0440\u043e\u0432 \u043c\u043e\u0436\u043d\u043e \u043e\u0437\u043d\u0430\u043a\u043e\u043c\u0438\u0442\u044c\u0441\u044f \u043d\u0430 \u0441\u0430\u0439\u0442\u0435 &lt;a href=\&quot;\/partners\/\&quot;&gt;halva.by&lt;\/a&gt;.&quot;}]}" bxajaxid=""></v-acc>
+                </v-scope>
+                <div class="section__actions">
+                    <button class="section__action btn btn--blue" onclick="document.location.href='/question-answer/';" type="button">Подробнее</button>
+                </div>
+            </div>
+        </section>
+    
+    
+    
+    
+    
+    
+    
+        <section class="section">
+            <div class="container container--md">
+                <h2 class="section__title">Отзывы</h2>
+            </div>
+            <div class="base-slider-container">
+                <div class="base-slider js-base-slider" data-autoplay="delay" data-xl-per-view="2">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+    
+                                                    <div class="swiper-slide">
+                                <div class="review-card">
+                                    <div class="review-card__head">
+                                        <svg class="review-card__icon">
+                                            <use href="#svg-icon-chat-fill"></use>
+                                        </svg>
+                                        <div class="review-card__title">Елена Петренко</div>
+                                        <div class="review-card__rating">
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star ">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review-card__text">Муж оформил карту полгода назад, с тех пор сделали довольно много покупок в «Пятом элементе». Платить получается удобно и необременительно, а срок платежа всегда напоминается через смс. Будем продолжать обустраивать квартиру!</div>
+                                </div>
+                            </div>
+                                                   <div class="swiper-slide">
+                                <div class="review-card">
+                                    <div class="review-card__head">
+                                        <svg class="review-card__icon">
+                                            <use href="#svg-icon-chat-fill"></use>
+                                        </svg>
+                                        <div class="review-card__title">Людмила Гуреева</div>
+                                        <div class="review-card__rating">
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star ">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review-card__text">Мой муж всегда с недоверием относился к штукам вроде «Халвы», пока не понадобилось купить запчасти для нашей «маздочки», сразу и много&#41;&#41; Вот тут-то и он оценил рассрочку. Причем особенно удивило то, что курс рубля никак не сказывается на общей сумме, чего мы очень боялись. Плюс все можно проверять через мобильное приложение, так что пока с картой никаких проблем.</div>
+                                </div>
+                            </div>
+                                                   <div class="swiper-slide">
+                                <div class="review-card">
+                                    <div class="review-card__head">
+                                        <svg class="review-card__icon">
+                                            <use href="#svg-icon-chat-fill"></use>
+                                        </svg>
+                                        <div class="review-card__title">Инна Осипова</div>
+                                        <div class="review-card__rating">
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review-card__text">Приобрели по карте компьютерный стол и кресло для сына к 1 сентября. Все оказалось просто, понятно и без лишних вопросов. Договор короткий и четкий, что большая редкость. Сегодня ведь даже чтобы обычную симку купить, нужно прочитать как минимум два листа со сносками и звездочками. В общем, с «Халвой» экономятся не только деньги, но и время.</div>
+                                </div>
+                            </div>
+                                                   <div class="swiper-slide">
+                                <div class="review-card">
+                                    <div class="review-card__head">
+                                        <svg class="review-card__icon">
+                                            <use href="#svg-icon-chat-fill"></use>
+                                        </svg>
+                                        <div class="review-card__title">Инга Лемешевская</div>
+                                        <div class="review-card__rating">
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star ">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review-card__text">Карту оформили почти случайно, все лето пролежала без дела, а потом увидели горящий тур в Египет и не смогли удержаться, оформили по «Халве MAX». В итоге провели с мужем отличный отпуск, хотя не думали что сможем позволить себе отдых в этом году.</div>
+                                </div>
+                            </div>
+                                                   <div class="swiper-slide">
+                                <div class="review-card">
+                                    <div class="review-card__head">
+                                        <svg class="review-card__icon">
+                                            <use href="#svg-icon-chat-fill"></use>
+                                        </svg>
+                                        <div class="review-card__title">Яна Семенова</div>
+                                        <div class="review-card__rating">
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review-card__text">Муж как-то научил меня одной маленькой хитрости, как выгодно заправляться перед каждым подорожанием бензина. Я просто беру карту Халва MIX и заливаю полный бак, а со следующей зарплаты пополняю карту. Конечно, выигрываешь не так уж и много, но все равно приятно!</div>
+                                </div>
+                            </div>
+                                                   <div class="swiper-slide">
+                                <div class="review-card">
+                                    <div class="review-card__head">
+                                        <svg class="review-card__icon">
+                                            <use href="#svg-icon-chat-fill"></use>
+                                        </svg>
+                                        <div class="review-card__title">Анастасия Ветлицкая</div>
+                                        <div class="review-card__rating">
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review-card__text">Картой «Халва MAX» пользуюсь уже полгода. Из последних покупок – пылесос в «Электросиле». Нравится, что платить нужно строго по графику, без всяких переплат, а все расходы отслеживаются в личном кабинете, очень удобно и продуманно.</div>
+                                </div>
+                            </div>
+                                                   <div class="swiper-slide">
+                                <div class="review-card">
+                                    <div class="review-card__head">
+                                        <svg class="review-card__icon">
+                                            <use href="#svg-icon-chat-fill"></use>
+                                        </svg>
+                                        <div class="review-card__title">Ольга Сидоренко</div>
+                                        <div class="review-card__rating">
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review-card__text">У мужа недавно был день рождения, но так получилось, что на подарок я скопить не успела в этот раз. Муж давно хотел фирменный спиннинг, он у меня рыбак. Посоветовали отличный выход: купить спиннинг по «Халве MIX», а расплатиться с зарплаты. Для меня главное, что муж теперь доволен! Да и сам подход очень понравился, платить постепенно всегда проще, чем сразу.</div>
+                                </div>
+                            </div>
+                                                   <div class="swiper-slide">
+                                <div class="review-card">
+                                    <div class="review-card__head">
+                                        <svg class="review-card__icon">
+                                            <use href="#svg-icon-chat-fill"></use>
+                                        </svg>
+                                        <div class="review-card__title">Анна Белявская</div>
+                                        <div class="review-card__rating">
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star active">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                            <svg class="review-card__rating-star ">
+                                                <use href="#svg-icon-rating-star"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="review-card__text">Карту брала на будущее, честно говоря, даже не думала, что пригодится когда-нибудь. Но перед маминым юбилеем отправились с ней в Galileo покупать праздничное платье, и неожиданно подобрали пару обновок и мне, решили купить по Халве MAX. Такой вот приятный бонус получился&#41;</div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="swiper-scrollbar"></div>
+                    <button class="swiper-arrow swiper-arrow--prev swiper-button-prev" type="button" aria-label="prev">
+                        <svg class="swiper-arrow__icon">
+                            <use href="#svg-icon-slide-left"></use>
+                        </svg>
+                    </button>
+                    <button class="swiper-arrow swiper-arrow--next swiper-button-next" type="button" aria-label="next">
+                        <svg class="swiper-arrow__icon">
+                            <use href="#svg-icon-slide-right"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+    
+    
+    
+    
+    
+    
+    
+        <section class="section section--gray">
+        <div class="base-slider-container">
+            <div class="block-head">
+                <div class="block-head__title">Акции</div>
+                <div class="block-head__action"><a class="btn btn--border"
+                                                   href="/news_and_actions/">Все акции					<svg class="btn__icon">
+                            <use href="#svg-icon-arrow-right"></use>
+                        </svg>
+                    </a></div>
+            </div>
+            <div class="base-slider js-base-slider">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                                                                            <div class="swiper-slide">
+                                    <div class="promo-card">
+                                        <a href="/news_and_actions/Akcii-i-skidki-ko-dnyu-rozhdeniya/" style="color: black">
+                                            <div class="promo-card__top">
+                                                                                            <div class="promo-card__content">
+                                                    <div class="promo-card__title">Акции и скидки ко Дню рождения! </div>
+    
+                                                        <div class="promo-card__text">
+                                                                                                                </div>
+    
+                                                </div>
+                                            </div>
+                                            <div class="promo-card__wrap-img">
+                                                                                            <img class="promo-card__img" src="/upload/iblock/588/5duvkszzuz3o3emmwwhtkcr0h71qlc4t/310x192_1_KHalva-DR.png" alt="21vek" loading="lazy"></div>
+                                        </a>
+                                        <div class="promo-card__bottom">
+                                                                                    <div class="promo-card__date">До 31.12.2023</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                                        <div class="swiper-slide">
+                                    <div class="promo-card">
+                                        <a href="/news_and_actions/Tyulpany/" style="color: black">
+                                            <div class="promo-card__top">
+                                                                                            <div class="promo-card__content">
+                                                    <div class="promo-card__title">ООО «Торгиндустрия» сеть ювелирных магазинов DIAROSSA</div>
+    
+                                                        <div class="promo-card__text">
+                                                                                                                </div>
+    
+                                                </div>
+                                            </div>
+                                            <div class="promo-card__wrap-img">
+                                                                                            <img class="promo-card__img" src="/upload/iblock/96a/fl5oc4r2masxlkp0ut2ohicx9nwugklb/5diarossa.png" alt="21vek" loading="lazy"></div>
+                                        </a>
+                                        <div class="promo-card__bottom">
+                                                                                    <div class="promo-card__date">До 31.08.2023</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                </div>
+                </div>
+                <div class="swiper-scrollbar"></div>
+                <button class="swiper-arrow swiper-arrow--prev swiper-button-prev" type="button" aria-label="prev">
+                    <svg class="swiper-arrow__icon">
+                        <use href="#svg-icon-slide-left"></use>
+                    </svg>
+                </button>
+                <button class="swiper-arrow swiper-arrow--next swiper-button-next" type="button" aria-label="next">
+                    <svg class="swiper-arrow__icon">
+                        <use href="#svg-icon-slide-right"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="block-mob-action">
+                <a class="btn btn--border" href="/news_and_actions/">Все акции				<svg class="btn__icon">
+                        <use href="#svg-icon-arrow-right"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    
+      
+    
+    <section class="section">
+        <div class="container">
+            <div class="apps">
+                <div class="apps__header">
+                    <div class="apps__banner" style="max-width: 282px">
+                        <img class="apps__banner-img" src="/upload/iblock/97b/9ahnh7niho3gro2l4nbq7xgvobt9g05e/desc.png" srcset="/upload/iblock/bf8/kopqd4u3puzngc24qx2walrz5wmt9ovu/mob.png 1023w, /upload/iblock/97b/9ahnh7niho3gro2l4nbq7xgvobt9g05e/desc.png" alt="moby" loading="lazy">
+    
+                    </div>
+                    <div class="apps__title">Управляйте Халвой в Moby</div>
+                </div>
+                             <ol class="apps__list">
+                    
+                        <li class="apps__list-item">
+                            <svg class="apps__list-item-icon">
+                                <use href="#svg-icon-success"></use>
+                            </svg>Пополняйте карту                    </li>
+    
+                    
+                        <li class="apps__list-item">
+                            <svg class="apps__list-item-icon">
+                                <use href="#svg-icon-success"></use>
+                            </svg>Погашайте задолженность                    </li>
+    
+                    
+                        <li class="apps__list-item">
+                            <svg class="apps__list-item-icon">
+                                <use href="#svg-icon-success"></use>
+                            </svg>График платежей и баланс карты всегда под рукой                    </li>
+    
+                                </ol>
+                
+                <div class="apps__actions">
+                    <a class="btn btn--gradient-border apps__mob-action" href="https://play.google.com/store/apps/details?id=by.mtbank.Moby" target="_blank"><span class="btn__text">Скачать</span></a>
+                    <a class="apps__action apps__action--app-gallery" href="https://appgallery.huawei.com/app/C106080931" target="_blank"></a>
+                    <a class="apps__action apps__action--app-store" href="https://apps.apple.com/by/app/mtbank-moby/id1534853667" target="_blank"></a>
+                    <a class="apps__action apps__action--google-play" href="https://play.google.com/store/apps/details?id=by.mtbank.Moby" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+        <section class="section section--gray" id="form_section">
+        <div class="container container--xs">
+    
+    
+    <div class="section__title">Оформите свою Халву</div>
+    <div class="section__subtitle">Выберите карту, которая подходит именно вам</div>    <v-scope>
+            <v-form slot="source" :data-source="{&quot;remote&quot;:&quot;\/about_halva_mix\/&quot;,&quot;fields&quot;:[{&quot;id&quot;:&quot;type&quot;,&quot;name&quot;:&quot;type&quot;,&quot;type&quot;:&quot;tab&quot;,&quot;value&quot;:&quot;1&quot;,&quot;required&quot;:false,&quot;options&quot;:[{&quot;value&quot;:&quot;1&quot;,&quot;type&quot;:&quot;mix&quot;,&quot;banner&quot;:{&quot;src&quot;:&quot;\/local\/assets\/images\/Card_Mix.png&quot;,&quot;alt&quot;:&quot;halva-mix&quot;},&quot;logo&quot;:{&quot;src&quot;:&quot;\/local\/assets\/images\/halva-mix.svg&quot;,&quot;alt&quot;:&quot;halva-mix&quot;},&quot;tabIndex&quot;:1},{&quot;value&quot;:&quot;2&quot;,&quot;type&quot;:&quot;max&quot;,&quot;banner&quot;:{&quot;src&quot;:&quot;\/local\/assets\/images\/Card_Max.png&quot;,&quot;alt&quot;:&quot;halva-max&quot;},&quot;logo&quot;:{&quot;src&quot;:&quot;\/local\/assets\/images\/halva-max.svg&quot;,&quot;alt&quot;:&quot;halva-max&quot;},&quot;tabIndex&quot;:2}]},{&quot;id&quot;:&quot;name&quot;,&quot;name&quot;:&quot;name&quot;,&quot;type&quot;:&quot;text&quot;,&quot;placeholder&quot;:&quot;\u0418\u043c\u044f*&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:true,&quot;tabIndex&quot;:2},{&quot;id&quot;:&quot;secondName&quot;,&quot;name&quot;:&quot;secondName&quot;,&quot;type&quot;:&quot;text&quot;,&quot;placeholder&quot;:&quot;\u0424\u0430\u043c\u0438\u043b\u0438\u044f*&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:true,&quot;tabIndex&quot;:3},{&quot;id&quot;:&quot;phone&quot;,&quot;name&quot;:&quot;phone&quot;,&quot;type&quot;:&quot;phone&quot;,&quot;placeholder&quot;:&quot;\u041d\u043e\u043c\u0435\u0440 \u0442\u0435\u043b\u0435\u0444\u043e\u043d\u0430*&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:true,&quot;prefix&quot;:&quot;+375&quot;,&quot;code&quot;:&quot;29&quot;,&quot;tabIndex&quot;:4,&quot;mask&quot;:{&quot;mask&quot;:&quot;000-00-00&quot;},&quot;options&quot;:[{&quot;value&quot;:&quot;29&quot;,&quot;text&quot;:&quot;29&quot;},{&quot;value&quot;:&quot;33&quot;,&quot;text&quot;:&quot;33&quot;},{&quot;value&quot;:&quot;44&quot;,&quot;text&quot;:&quot;44&quot;},{&quot;value&quot;:&quot;25&quot;,&quot;text&quot;:&quot;25&quot;}]},{&quot;id&quot;:&quot;email&quot;,&quot;name&quot;:&quot;email&quot;,&quot;type&quot;:&quot;text&quot;,&quot;placeholder&quot;:&quot;Email&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false,&quot;tabIndex&quot;:5},{&quot;id&quot;:&quot;checkbox&quot;,&quot;name&quot;:&quot;checkbox&quot;,&quot;type&quot;:&quot;checkbox&quot;,&quot;text&quot;:&quot;\u0414\u0430\u044e \u0441\u043e\u0433\u043b\u0430\u0441\u0438\u0435 \u043d\u0430 &lt;a target='_blank' href=\&quot;\/soglasie-na-obrabotku-personalnykh-dannykh.php\&quot;&gt;\u043e\u0431\u0440\u0430\u0431\u043e\u0442\u043a\u0443 \u043c\u043e\u0438\u0445 \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0445 \u0434\u0430\u043d\u043d\u044b\u0445&lt;\/a&gt;&quot;,&quot;value&quot;:false,&quot;required&quot;:true,&quot;tabIndex&quot;:6}],&quot;buttons&quot;:{&quot;submitBtn&quot;:{&quot;text&quot;:&quot;\u0417\u0430\u043a\u0430\u0437\u0430\u0442\u044c \u043a\u0430\u0440\u0442\u0443&quot;,&quot;className&quot;:&quot;btn--blue&quot;,&quot;type&quot;:&quot;submit&quot;,&quot;tabIndex&quot;:7}}}"
+                    bxajaxid="134d976b28c1b7b2b777e22e91ce2bfd"></v-form>
+        </v-scope>
+    
+    
+        </div>
+    </section>
+    
+    
+    
+    
+    
+    
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__row">
+                <div class="footer__logos">
+                                    <a class="footer__logo" href="/">
+                                    <img class="header__logo-img" src="/local/assets/images/logo.svg" alt="logo">                               </a>
+                                <span class="footer__logos-sep"></span>
+    
+    
+                    <a class="footer__logo" target="_blank" href="https://www.mtbank.by/">
+    
+                    <img class="footer__logo-img" src="/local/assets/images/mtb-logo.svg" alt="mtb">
+    
+    
+                    </a>
+    
+                </div>
+                
+        <div class="footer__nav">
+    
+                                    <a class="footer__nav-item nav__link--mix active" href="/about_halva_mix/">О Халве MIX</a>
+            
+                                    <a class="footer__nav-item" href="/about_halva_max/">О Халве MAX</a>
+            
+                                    <a class="footer__nav-item" href="/make_partner/">Стать партнером</a>
+            
+                                    <a class="footer__nav-item" href="/question-answer/">Вопрос-ответ</a>
+            
+            
+        </div>
+    
+            </div>
+            <div class="footer__row">
+                <div class="footer__copy">
+                    <p>Copyright 2023, MTBank</p>
+    <p>© 1994–2023 ЗАО “МТБанк”, улица Толстого,10, Минск, Республика Беларусь
+    Лицензия на осуществление банковской деятельности № 13 выдана 30.12.2022</p>
+    
+                </div>
+                <div class="footer__actions">
+        <div class="footer__action">
+            <div class="footer__action-title">Подписывайтесь на наши соц. сети</div>
+            <div class="footer__action-list"><a class="footer__action-btn" target="_blank" href="https://www.youtube.com/channel/UClrXPTbWXwHOVy-Xkp6iqZA" aria-label="youtube">
+                    <img class="footer__action-btn-icon" src="/local/assets/images/social/youtube.svg" alt="youtube"></a>
+                <a class="footer__action-btn" target="_blank" href="https://vk.com/mtbank_belarus" aria-label="vkontakte">
+                    <img class="footer__action-btn-icon" src="/local/assets/images/social/vkontakte.svg" alt="vkontakte"></a>
+                <a class="footer__action-btn" href="https://www.instagram.com/mtbank.belarus/?hl=ru" target="_blank" aria-label="instagram">
+                    <img class="footer__action-btn-icon" src="/local/assets/images/social/instagram.svg" alt="instagram"></a>
+                <a class="footer__action-btn" href="https://www.facebook.com/mtbank.by"  target="_blank" aria-label="facebook">
+                    <img class="footer__action-btn-icon" src="/local/assets/images/social/facebook.svg" alt="facebook"></a></div>
+        </div>
+        <div class="footer__action">
+            <div class="footer__action-title">Приложение Moby</div>
+            <div class="footer__action-list">
+                <a class="footer__action-btn" href="https://appgallery.huawei.com/app/C106080931" aria-label="appGallery">
+                    <img class="footer__action-btn-icon" src="/local/assets/images/app/appGallery.png" alt="appGallery">
+                </a>
+                <a class="footer__action-btn" href="https://apps.apple.com/by/app/mtbank-moby/id1534853667" aria-label="appStore">
+                    <img class="footer__action-btn-icon" src="/local/assets/images/app/appStore.svg" alt="appStore">
+                </a>
+                <a class="footer__action-btn" href="https://play.google.com/store/apps/details?id=by.mtbank.Moby" aria-label="googlePlay"><img class="footer__action-btn-icon" src="/local/assets/images/app/googlePlay.svg" alt="googlePlay">
+                </a>
+            </div>
+        </div>
+        <div class="footer__action footer__action--contacts">
+            <div class="footer__action-title">Задайте ваш вопрос</div>
+            <div class="footer__action-contact"><a class="footer__action-contact-link flc" href="tel:5099999">509-99-99</a><span class="footer__action-contact-label">А1, МТС, life:)</span></div>
+        </div>
+    </div>
+    
+    
+            </div>
+        </div>
+    </footer>
+    <div class="scroll-top">
+        <button class="scroll-top__btn hidden" id="scrollTopButton" type="button" aria-label="scroll top">
+            <svg class="scroll-top__btn-icon">
+                <use href="/local/assets/dist/icons/sprite.svg#svg-icon-arrow-top"></use>
+            </svg>
+        </button>
+    </div>
+    
+    <div class="chat-btn">
+    
+    <a class="webim_button" href="#" rel="webim"><img src="https://chat.mtbank.by/button.php?location=HALVA_new" border="0"/></a>
+    
+    <script type="text/javascript">
+    
+        webim = {
+            accountName: "mtbankby",
+            domain: "chat.mtbank.by",
+            location: "HALVA_new"
+        };
+    
+    </script>
+    <!-- /webim button -->
+    
+    </div>
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
