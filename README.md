@@ -9,3 +9,5 @@ demohalva
 
 DQxymn2u5W
 
+https://elama.ru/blog/sozdanie-poiskovoy-kampanii-v-yandeks-direkte-s-uchetom-poslednih-izmeneniy/
+
